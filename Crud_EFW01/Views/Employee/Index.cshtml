@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Crud_EFW01.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<button class="btn btn-success">@Html.ActionLink("Create Employee", "Create", "Employee")</button>
+<h2>Employee</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Mobile</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var emp in Model)
+    {
+<tr>
+    <td>@emp.ID</td>
+    <td>@emp.Name</td>
+    <td>@emp.Email</td>
+    <td>@emp.Address</td>
+    <td>@emp.Gender</td>
+    <td>@emp.Mobile</td>
+    
+    <td>
+        <button class="btn btn-outline-success">@Html.ActionLink("Update", "Update", new { id=emp.ID})</button>
+        <button class="btn btn-outline-success"> @Html.ActionLink("Delete", "Delete", new { id = emp.ID })</button>
+       </td>
+</tr>
+    }
+</table>
+
